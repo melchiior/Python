@@ -1,0 +1,46 @@
+use gestor_hospitalar;
+create table pacientes (
+    id_paciente INT NOT NULL AUTO_INCREMENT,
+    id_municipio INT,
+    nome VARCHAR(45),
+    data_nascimento DATE,
+    genero CHAR(1),
+    logradouro VARCHAR(45),
+    cep CHAR(9),
+    PRIMARY KEY (id_paciente)
+);
+create table municipios (
+    id_municipio INT NOT NULL AUTO_INCREMENT,
+    codigo VARCHAR(45),
+    nome VARCHAR(45),
+    UF char(2),
+    PRIMARY KEY (id_municipio)
+);
+create table hospitais (
+    id_hospital INT NOT NULL AUTO_INCREMENT,
+    id_municipio INT,
+    codigo_cnes CHAR(7),
+    razao_social VARCHAR(45),
+    cnpj CHAR(18),
+    logradouro varchar(45),
+    bairro varchar (45),
+    cep varchar(45),
+    primary key (id_hospital)
+);
+create table internacoes (
+    id int not null AUTO_INCREMENT,
+    id_paciente int,
+    id_hospital int,
+    id_diagnostico_internacao int,
+    id_diagnostico_alta int,
+    data_internacao date,
+    data_alta varchar(45),
+    desfecho varchar(45),
+    primary key (id)
+);
+create table diagnosticos (
+    id_diagnostico int not null auto_increment,
+    codigo char(7),
+    descricao varchar(45),
+    PRIMARY key (id_diagnostico)
+);
